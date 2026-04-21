@@ -219,7 +219,6 @@ jobs:
       run: |
         link.cmd && cd fabric_1_21_11 && gradlew build
     - name: update
-      if: startsWith(github.ref, 'refs/tags/') && !contains(github.ref_name, 'debug')
       uses: actions/upload-artifact@v4
       with:
         name: "allmusic_server_fabric_1_21_11"
