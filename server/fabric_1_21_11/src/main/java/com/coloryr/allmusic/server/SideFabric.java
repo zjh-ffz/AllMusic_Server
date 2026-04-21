@@ -121,13 +121,13 @@ public class SideFabric extends BaseSide {
 
     @Override
     public boolean onMusicPlay(SongInfoObj obj) {
-        return MusicPlayEvent.EVENT.invoker().interact(obj) != InteractionResult.PASS;
+        return !MusicPlayEvent.EVENT.invoker().interact(obj);
     }
 
     @Override
     public boolean onMusicAdd(Object obj, PlayerAddMusicObj music) {
         CommandSourceStack source = (CommandSourceStack) obj;
-        return MusicAddEvent.EVENT.invoker().interact(source.getPlayer(), music) != InteractionResult.PASS;
+        return !MusicAddEvent.EVENT.invoker().interact(source.getPlayer(), music);
     }
 
     private void send(ServerPlayer players, MusicPack data) {
